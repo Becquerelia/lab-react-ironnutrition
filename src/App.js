@@ -60,7 +60,7 @@ function App() {
 
        {caloriesConsumed.map((eachFoodCalories)=> {
          const {name, quantity, calories} = eachFoodCalories
-         return <p>{name} : {quantity} x {calories} € = {quantity * calories} Calories</p>
+         return <p>{name} : {quantity} x {calories} calories = {quantity * calories} Calories</p>
        })}
 
       <h4>Total: {total} Calories</h4>
