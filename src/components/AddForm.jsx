@@ -22,14 +22,14 @@ function AddForm(props) {
     <div>
         <form onSubmit={handleSubmit}>
 
-            <label htmlFor="image">Pic:</label>
-            <input type="file" name="image" value={image} onChange={handleImageChange} />
+            <label htmlFor="image"><b>Pic:</b></label>
+            <input className="btnMargin" type="text" placeholder="  URL here" name="image" value={image} onChange={handleImageChange} />
 
-            <label htmlFor="name">Name:</label>
-            <input type="text" name="name" value={name} onChange={handleNameChange} />
+            <label htmlFor="name"><b>Name:</b></label>
+            <input className="btnMargin" type="text" name="name" value={name} onChange={handleNameChange} />
 
-            <label htmlFor="calories">Calories:</label>
-            <input type="number" name="calories" value={calories} onChange={handleCaloriesChange} />
+            <label htmlFor="calories"><b>Calories:</b></label>
+            <input className="btnMargin" type="number" name="calories" value={calories} onChange={handleCaloriesChange} />
 
             <button type="submit">Add Food</button>
 

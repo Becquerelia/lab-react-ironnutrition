@@ -37,34 +37,45 @@ function App() {
     return acc + (eachFoodCalories.quantity * eachFoodCalories.calories)
   }, 0)
 
+  //FUNCTION TO DELETE FOOD:
+  const deleteFood = (foodName) => {
+    const foodListCopy = [...caloriesConsumed]
+    foodListCopy.splice(foodName, 1)
+    setCaloriesConsumed(foodListCopy)
+
+  }
+
   return (
     
     <div className="App">
 
       <h1>IronNutrition:</h1>
 
-      <button onClick={()=>setShowFoodForm(!showFoodForm)}>{showFoodForm ? "Hidde Form" : "Show Form"}</button>
+      <button className='btn btn-primary btn-lg btnMargin' onClick={()=>setShowFoodForm(!showFoodForm)}>{showFoodForm ? "Hidde Form" : "Show Form"}</button>
       
-      {/*<AddForm setFoodList={setFoodList} foodList={foodList}/>*/}
-      {showFoodForm && <AddForm addFood={addFood}/>}
+      {showFoodForm && <AddForm addFood={addFood} />}
 
       <Search searchFood={searchFood}/>
 
+      <div className="todaysFood" >
+      <h3>Today's Foods:</h3>
+
+       {caloriesConsumed.map((eachFoodCalories, index)=> {
+         const {name, quantity, calories} = eachFoodCalories
+         return <p>{name} : {quantity} x {calories} calories = {quantity * calories} Calories <button onClick={()=> deleteFood(index)}> Delete</button></p>
+       })}
+
+      <h4>Total: {total} Calories</h4>
+      </div>
+
+      <div className="flexCards">
       {foodToRender.map((eachFood, index)=>{
           return(
             <FoodBox eachFoodProps={eachFood} key={index+eachFood.name} addToCaloriesConsumed={addToCaloriesConsumed} />
           )
       })}
-
-      <h3>Today's Foods:</h3>
-
-       {caloriesConsumed.map((eachFoodCalories)=> {
-         const {name, quantity, calories} = eachFoodCalories
-         return <p>{name} : {quantity} x {calories} calories = {quantity * calories} Calories</p>
-       })}
-
-      <h4>Total: {total} Calories</h4>
-      
+      </div>
+            
     </div>
   );
 }

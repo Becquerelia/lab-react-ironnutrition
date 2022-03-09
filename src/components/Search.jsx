@@ -11,7 +11,7 @@ function Search(props) {
     }
 
   return (
-    <div>
+    <div className='boxMargin'>
 
         <label htmlFor="search">Search:</label>
         <input type="text" name="search" value={search} onChange={handleChange} />

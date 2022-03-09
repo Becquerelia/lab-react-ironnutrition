@@ -16,42 +16,28 @@ function FoodBox(props) {
       props.addToCaloriesConsumed({name, calories, quantity})
     }
 
+    const style = {
+      width:"500px",
+      padding: "50px",
+      textAlign: "center"
+    }
+
   return (
-  <div className="box">
-     <article className="media">
-
-        <div className="media-left">
-            <figure className="image is-64x64">
-              <img width="250px" src={image} alt={name} />
-            </figure>
+  <div style={style}>
+    <div className="myCard">
+      <div >
+        <img className="card-img-top" width="250px" src={image} alt={name} />
+        <div className="card-body">
+         <p className="card-title"><strong>{name}</strong> <br /> <small>{calories}</small></p>
+         <div className="card-text">
+            <form onSubmit={handleSubmit} >
+              <input type="number" value={quantity} onChange={handleChange}/>
+              <button > + </button>
+            </form>
+          </div>
         </div>
-        
-        <div className="media-content">
-    
-           <div className="content">
-              <p>
-                <strong>{name}</strong> <br />
-                <small>{calories}</small>
-              </p>
-            </div>
-        </div>
-    
-        <div className="media-right">
-    
-           <div className="field has-addons">
-             <form onSubmit={handleSubmit} >
-                <div className="control">
-                  <input className="input" type="number" value={quantity} onChange={handleChange}/>
-                </div>
-    
-                <div className="control">
-                  <button className="button is-info"> + </button>
-                </div>
-              </form>
-
-            </div>
-        </div>
-    </article>
+      </div>
+    </div>    
  </div>
   )
 }
