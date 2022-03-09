@@ -42,7 +42,6 @@ function App() {
     const foodListCopy = [...caloriesConsumed]
     foodListCopy.splice(foodName, 1)
     setCaloriesConsumed(foodListCopy)
-
   }
 
   return (
